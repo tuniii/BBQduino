@@ -35,6 +35,5 @@
  *      Licenses of above works are include by reference.
  */
 
-void bbq433Init();
 boolean bbq433CheckData(uint16_t delta);
 int bbq433GetTemperature(uint8_t index);

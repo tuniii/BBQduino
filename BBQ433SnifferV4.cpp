@@ -76,11 +76,10 @@ int temperatures[2] = {INACTIVEVALUE, INACTIVEVALUE};
 uint tmp_probe1, tmp_probe2;
 uint32_t check_data;
 uint16_t chksum_data, chksum_sent, chk_xor, chk_xor_expected = 0;
-uint captured_time;
-uint current_bit;
-uint packet_bit_pointer;
-uint short_count;
-uint long_count;
+uint current_bit = BIT_ZERO;
+uint packet_bit_pointer = 0u;
+uint short_count = 0u;
+uint long_count = 0u;
 
 boolean previous_period_was_short = false;
 
@@ -95,11 +94,6 @@ static void handleStateReceive(uint16_t delta);
 static boolean validatePacket();
 static uint8_t quart(uint8_t param);
 static uint16_t calculate_checksum(uint32_t data);
-
-void bbq433Init()
-{
-  RX_STATE_RESET();
-}
 
 boolean bbq433CheckData(uint16_t delta)
 {
